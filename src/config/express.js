@@ -6,8 +6,6 @@ const morgan = require('morgan');
 var logger = require('winston');
 const routers = require('../routes/index');
 
-
-
 module.exports = () => {
     const app = express();
 
@@ -16,7 +14,7 @@ module.exports = () => {
     app.use(function (req, res, next) {
         res.removeHeader("X-Powered-By");
         next();
-      });
+    });
 
     // SETANDO VARIÁVEIS DA APLICAÇÃO
     app.set('port', process.env.PORT || config.get('server.port'));
