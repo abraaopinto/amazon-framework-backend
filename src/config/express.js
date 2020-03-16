@@ -12,13 +12,14 @@ module.exports = () => {
     const app = express();
 
     app.disable('x-powered-by');
+
     app.use(function (req, res, next) {
         res.removeHeader("X-Powered-By");
         next();
       });
 
     // SETANDO VARIÁVEIS DA APLICAÇÃO
-    app.set('port', process.env.PORT || 8080);
+    app.set('port', process.env.PORT || config.get('server.port'));
 
     // MIDDLEWARES
     app.use(bodyParser.json());
