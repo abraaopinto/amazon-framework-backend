@@ -1,9 +1,8 @@
-const app = require('../src/app');
-const http = require('http');
-const port = process.env.PORT || 8080;
-// server
-const server = http.createServer(app);
+const app = require('../src/config/express')();
+const port = app.get('port');
 
-server.listen(port);
-
-logger.debug(`A API está ativa em ${ port }!`);
+console.log(app);
+// RODANDO NOSSA APLICAÇÃO NA PORTA SETADA
+app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`)
+});
