@@ -1,3 +1,3 @@
-var app = require('./src/config/express')
+const app = require('./src/config/express');
 
 module.exports = app;

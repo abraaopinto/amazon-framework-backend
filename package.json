@@ -1,10 +1,10 @@
 {
   "name": "amazon-framework-backend",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Modulo javascript para auxiliar o desenvolvimento de projetos com nodejs para a construção do back-end da aplicação.",
   "main": "index.js",
   "scripts": {
-    "dev": "node node_modules/nodemon/bin/nodemon bin/server"
+    "dev": "node node_modules/nodemon/bin/nodemon bin/server/server.js"
   },
   "repository": {
     "type": "git",
