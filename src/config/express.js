@@ -1,26 +1,25 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-var config = require('config');
-
+const config = require('config');
 const morgan = require('morgan');
-var logger = require('winston');
+const logger = require('winston');
+const helmet = require('helmet');
+
 const routers = require('../routes/index');
 
 module.exports = () => {
-    const app = express();
+    var app = express();
 
-    app.disable('x-powered-by');
+    app.use(helmet());
 
-    app.use(function (req, res, next) {
-        res.removeHeader("X-Powered-By");
-        next();
-    });
+    app.disable('x-powered-by');   
 
     // SETANDO VARIÁVEIS DA APLICAÇÃO
     app.set('port', process.env.PORT || config.get('server.port'));
 
     // MIDDLEWARES
     app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
     app.use(morgan('combined', { stream: logger.stream }));
     app.use(routers);
 
