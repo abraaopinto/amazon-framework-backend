@@ -2,9 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const config = require('config');
 const morgan = require('morgan');
-const logger = require('winston');
+const logger = require('../config/winston');
 const helmet = require('helmet');
 
+// Default routes
 const routers = require('../routes/index');
 
 module.exports = () => {
